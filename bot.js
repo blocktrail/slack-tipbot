@@ -73,6 +73,10 @@ slack.on('message', function(message) {
     }
 });
 
+slack.on('userChange', function(u) {
+    tipbot.onUserChange(u);
+});
+
 slack.on('error', function(error) {
     debug('Error: %s', error);
 });

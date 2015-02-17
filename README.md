@@ -7,7 +7,7 @@ ToDo
  - better way of dealing with errors
  - transaction history
  - withdraw
- - test if new users are dealt with properly
+ - think of a way to deal with deleted users with BTC balance
  - respond to being the receiver of the action
 
 Run
