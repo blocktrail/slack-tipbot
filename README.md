@@ -8,7 +8,6 @@ ToDo
  - transaction history
  - withdraw
  - test if new users are dealt with properly
- - min tip amount (higher than base fee)
  - respond to being the receiver of the action
 
 Run
