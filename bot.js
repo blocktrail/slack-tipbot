@@ -3,19 +3,22 @@ var debug = require('debug')('tipbot:bot');
 var Slack = require('slack-client');
 var TipBot = require('./lib/tipbot');
 var assert = require('assert');
+var parseArgs = require('minimist');
 
-assert(process.env.TIPBOT_SLACK_TOKEN, "TIPBOT_SLACK_TOKEN is required");
-assert(process.env.TIPBOT_BLOCKTRAIL_APIKEY, "TIPBOT_BLOCKTRAIL_APIKEY is required");
-assert(process.env.TIPBOT_BLOCKTRAIL_APISECRET, "TIPBOT_BLOCKTRAIL_APISECRET is required");
-assert(process.env.TIPBOT_SECRET, "TIPBOT_SECRET is required");
+var argv = parseArgs(process.argv.slice(2));
 
-var SLACK_TOKEN = process.env.TIPBOT_SLACK_TOKEN,
-    BLOCKTRAIL_APIKEY = process.env.TIPBOT_BLOCKTRAIL_APIKEY,
-    BLOCKTRAIL_APISECRET = process.env.TIPBOT_BLOCKTRAIL_APISECRET,
-    SECRET = process.env.TIPBOT_SECRET,
+var SLACK_TOKEN = argv['slack-token'] || process.env.TIPBOT_SLACK_TOKEN,
+    BLOCKTRAIL_APIKEY = argv['blocktrail-apikey'] || process.env.TIPBOT_BLOCKTRAIL_APIKEY,
+    BLOCKTRAIL_APISECRET = argv['blocktrail-apisecret'] || process.env.TIPBOT_BLOCKTRAIL_APISECRET,
+    SECRET = argv['secret'] || process.env.TIPBOT_SECRET,
     TESTNET = true,
     AUTO_RECONNECT = true,
     OPTIONS = {ALL_BALANCES: true, DEMAND: true};
+
+assert(SLACK_TOKEN, "--slack-token or TIPBOT_SLACK_TOKEN is required");
+assert(BLOCKTRAIL_APIKEY, "--blocktrail-apikey or TIPBOT_BLOCKTRAIL_APIKEY is required");
+assert(BLOCKTRAIL_APISECRET, "--blocktrail-apisecret or TIPBOT_BLOCKTRAIL_APISECRET is required");
+assert(SECRET, "--secret or TIPBOT_SECRET is required");
 
 /**
  * find a DM channel object by userID
