@@ -2,11 +2,17 @@ var _ = require('lodash');
 var debug = require('debug')('tipbot:bot');
 var Slack = require('slack-client');
 var TipBot = require('./lib/tipbot');
+var assert = require('assert');
 
+assert(process.env.TIPBOT_SLACK_TOKEN, "TIPBOT_SLACK_TOKEN is required");
+assert(process.env.TIPBOT_BLOCKTRAIL_APIKEY, "TIPBOT_BLOCKTRAIL_APIKEY is required");
+assert(process.env.TIPBOT_BLOCKTRAIL_APISECRET, "TIPBOT_BLOCKTRAIL_APISECRET is required");
+assert(process.env.TIPBOT_SECRET, "TIPBOT_SECRET is required");
 
 var SLACK_TOKEN = process.env.TIPBOT_SLACK_TOKEN,
     BLOCKTRAIL_APIKEY = process.env.TIPBOT_BLOCKTRAIL_APIKEY,
     BLOCKTRAIL_APISECRET = process.env.TIPBOT_BLOCKTRAIL_APISECRET,
+    SECRET = process.env.TIPBOT_SECRET,
     TESTNET = true,
     AUTO_RECONNECT = true,
     OPTIONS = {ALL_BALANCES: true, DEMAND: true};
@@ -22,7 +28,7 @@ Slack.prototype.getDMByUserId = function(userId) {
 };
 
 var slack = new Slack(SLACK_TOKEN, AUTO_RECONNECT, /* AUTO_MARK */ true);
-var tipbot = new TipBot(slack, BLOCKTRAIL_APIKEY, BLOCKTRAIL_APISECRET, TESTNET, OPTIONS);
+var tipbot = new TipBot(slack, BLOCKTRAIL_APIKEY, BLOCKTRAIL_APISECRET, SECRET, TESTNET, OPTIONS);
 
 slack.on('open', function() {
     var channels = [],

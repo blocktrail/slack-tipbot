@@ -4,7 +4,6 @@ Slack TipBot using BlockTrail API.
 
 ToDo
 ----
- - secure passwords
  - better way of dealing with errors
  - transaction history
  - withdraw
