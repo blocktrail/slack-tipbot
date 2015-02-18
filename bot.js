@@ -11,7 +11,7 @@ var SLACK_TOKEN = argv['slack-token'] || process.env.TIPBOT_SLACK_TOKEN,
     BLOCKTRAIL_APIKEY = argv['blocktrail-apikey'] || process.env.TIPBOT_BLOCKTRAIL_APIKEY,
     BLOCKTRAIL_APISECRET = argv['blocktrail-apisecret'] || process.env.TIPBOT_BLOCKTRAIL_APISECRET,
     SECRET = argv['secret'] || process.env.TIPBOT_SECRET,
-    TESTNET = true,
+    TESTNET = argv['testnet'] || process.env.TIPBOT_TESTNET,
     AUTO_RECONNECT = true,
     OPTIONS = {ALL_BALANCES: true, DEMAND: true};
 

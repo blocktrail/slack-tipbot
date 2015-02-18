@@ -42,6 +42,8 @@ You can also use ENV vars instead of arguments:
 You should use something like [forever](https://www.npmjs.com/package/forever) or [supervisord](http://supervisord.org/) to keep it running on a server,
 but using a `screen` does the job too xD
 
+You can add `--testnet` (or ENV var `TIPBOT_TESTNET="true"`) to make the bot run on testnet instead of mainnet (for development for example).
+
 #### YOUR_VERY_VERY_SECRET_SECRET
 The value for `YOUR_VERY_VERY_SECRET_SECRET` is used to create passwords for the wallets of the users of the tipbot. 
 If someone gets a hold of your API key and secret, then YOUR_VERY_VERY_SECRET_SECRET will serve as an extra security measure, to prevent the coins from being stolen.
