@@ -1,8 +1,8 @@
 {
     "name": "blocktrail-slack-tipbot",
     "version": "0.0.1",
-    "description": "Slack TipBot - Using BlockTrail API",
-    "main": "app.js",
+    "description": "Bitcoin Slack TipBot - Using BlockTrail API",
+    "main": "bot.js",
     "dependencies": {
         "async": "~0.9.0",
         "blocktrail-sdk": "~1.2.0",
@@ -18,11 +18,11 @@
         "nodemon": "^1.3.6"
     },
     "scripts": {
-        "develop": "DEBUG=tipbot*,blocktrail* ./node_modules/nodemon/bin/nodemon.js ./bot.js"
+        "develop": "DEBUG=\"*\" ./node_modules/nodemon/bin/nodemon.js ./bot.js"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/blocktrail/blocktrail-slack-tipbot"
+        "url": "https://github.com/blocktrail/slack-tipbot"
     },
     "keywords": [
         "slack",
@@ -34,7 +34,7 @@
     "author": "Ruben de Vries <ruben@blocktrail.com>",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/blocktrail/blocktrail-slack-tipbot/issues"
+        "url": "https://github.com/blocktrail/slack-tipbot/issues"
     },
-    "homepage": "https://github.com/blocktrail/blocktrail-slack-tipbot"
+    "homepage": "https://tipbot.blocktrail.com"
 }
