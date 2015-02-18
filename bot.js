@@ -1,5 +1,5 @@
 var _ = require('lodash');
-var debug = require('debug')('tipbot:bot');
+var debug = require('debug');
 var Slack = require('slack-client');
 var TipBot = require('./lib/tipbot');
 var assert = require('assert');
@@ -49,16 +49,17 @@ slack.on('open', function() {
         }
     });
 
-    debug('Connected to Slack. You are @%s of %s', slack.self.name, slack.team.name);
-    debug('You are in (channels): %s', channels.join(', '));
-    debug('As well as (groups): %s', groups.join(', '));
+    debug('tipbot:bot')('Connected to Slack. You are @%s of %s', slack.self.name, slack.team.name);
+    debug('tipbot:bot')('You are in (channels): %s', channels.join(', '));
+    debug('tipbot:bot')('As well as (groups): %s', groups.join(', '));
 
     // init the tipbot
     tipbot.init();
 });
 
 slack.on('message', function(message) {
-    debug('MESSAGE', message.type, message.channel, message.user, message.text);
+    // debug messages to seperate channel so we only log them when explicitly enabled
+    debug('tipbot:messages')('MESSAGE', message.type, message.channel, message.user, message.text);
 
     var type = message.type,
         channel = slack.getChannelGroupOrDMByID(message.channel),

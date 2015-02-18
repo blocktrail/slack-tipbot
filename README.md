@@ -17,7 +17,7 @@ How to Run a TipBot
 
 ### Run
 ```sh
-node bot.js \
+DEBUG="tipbot:*" node bot.js \
   --slack-token="YOUR_SLACK_TOKEN" \
   --blocktrail-apikey="YOUR_API_KEY" \
   --blocktrail-apisecret="YOUR_API_SECRET" \
