@@ -82,7 +82,7 @@ slack.on('userChange', function(u) {
 });
 
 slack.on('error', function(error) {
-    debug('Error: %s', error);
+    debug('Error: %s', error.msg);
 });
 
 slack.login();

@@ -33,7 +33,7 @@ but using a `screen` does the job too xD
 
 ToDo
 ----
- - withdraw
+ - withdraw EVERYTHING
  - transaction history
  - better way of dealing with errors
  - think of a way to deal with deleted users with BTC balance
