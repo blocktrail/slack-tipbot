@@ -56,29 +56,37 @@ For example, to trigger the `help` command you can could say `hey @tipbot can yo
 and the `help` in that sentence will trigger displaying the help information.
 
 #### Commands / Trigger words
- - `balance`  
-   ask the bot for your current balance  
-   eg; `hey @tipbot can you please tell me my balance`
- - `send <value + unit> @someone`  
-   tell the bot to send coins to someone  
-   eg; `@tipbot please send 0.1 BTC to @bob` will send 0.1 BTC to @bob.  
-   the `<value + unit>` can be `0.1 BTC` or `10000000 Satoshi`  
-   this command has a few aliases which you can use; `give` and `sent`  
-   eg; `@tipbot can you give @bob 0.1 BTC` or `@tipbot I'd like you to send @bob 0.1 BTC`
- - `receive <value + unit> @someone`
-   tell the bot to request coins from someone  
-   eg; `@tipbot I want to receive 0.1 BTC from @bob` will request 0.1 BTC from @bob.  
-   after you've requested coins from someone that person will be asked if that is OK, replying with `yes`, `ok` or `sure` will make the transaction happen.  
-   the `<value + unit>` can be `0.1 BTC` or `10000000 Satoshi`  
-   this command has a few aliases which you can use; `ask`, `demand`, `deserve`, `send me`, `give me`, `gimme` and `owes me`  
-   eg; `@tipbot I demand 0.1 BTC from @bob for making such a cool bot` or `@tipbot @bob please gimme 0.1 BTC for lunch`
- - `deposit`  
-   ask the bot for a deposit address  
-   eg; `@tipbot I'd like to deposit some BTC`
- - `withdraw`  
-   tell the bot you want to withdraw to an address  
-   eg; `@tipbot I want to withdraw 0.5 BTC to 1dice8EMZmqKvrGE4Qc9bUFf9PX3xaYDp`  
-   after you've requested the withdraw the bot will confirm with you if it's OK, reploying with `yes`, `ok` or `sure` will make the transaction happen.
+##### `help` - *ask the bot for help*
+eg; `hey @tipbot can you show me the help info!`
+
+##### `balance` - *ask the bot for your current balance*
+eg; `hey @tipbot can you please tell me my balance`
+
+##### `send <value + unit> @someone` - *tell the bot to send coins to someone*  
+eg; `@tipbot please send 0.1 BTC to @bob` will send 0.1 BTC to @bob.  
+
+the `<value + unit>` can be `0.1 BTC` or `10000000 Satoshi`  
+
+this command has a few aliases which you can use; `give` and `sent`  
+eg; `@tipbot can you give @bob 0.1 BTC` or `@tipbot I'd like you to send @bob 0.1 BTC`
+
+##### `receive <value + unit> @someone` - *tell the bot to request coins from someone*
+eg; `@tipbot I want to receive 0.1 BTC from @bob` will request 0.1 BTC from @bob.  
+
+after you've requested coins from someone that person will be asked if that is OK, replying with `yes`, `ok` or `sure` will make the transaction happen.  
+
+the `<value + unit>` can be `0.1 BTC` or `10000000 Satoshi`  
+
+this command has a few aliases which you can use; `ask`, `demand`, `deserve`, `send me`, `give me`, `gimme` and `owes me`  
+eg; `@tipbot I demand 0.1 BTC from @bob for making such a cool bot` or `@tipbot @bob please gimme 0.1 BTC for lunch`
+
+##### `deposit` - *ask the bot for a deposit address* 
+eg; `@tipbot I'd like to deposit some BTC`
+
+##### `withdraw` -  *tell the bot you want to withdraw to an address*  
+eg; `@tipbot I want to withdraw 0.5 BTC to 1dice8EMZmqKvrGE4Qc9bUFf9PX3xaYDp`  
+
+after you've requested the withdraw the bot will confirm with you if it's OK, reploying with `yes`, `ok` or `sure` will make the transaction happen.
 
 #### Channels
 By default the tipbot joins the default `#general` channel, you can invite him into other channels just like you invite normal users into channels.
