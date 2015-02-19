@@ -42,14 +42,14 @@ You can also use ENV vars instead of arguments:
 You should use something like [forever](https://www.npmjs.com/package/forever) or [supervisord](http://supervisord.org/) to keep it running on a server,
 but using a `screen` does the job too xD
 
-You can add `--testnet` (or ENV var `TIPBOT_TESTNET="true"`) to make the bot run on testnet instead of mainnet (for development for example).
+You can add `--testnet` (or ENV var `TIPBOT_TESTNET="true"`) to make the bot run on testnet instead of mainnet (for development or example).
 
 #### YOUR_VERY_VERY_SECRET_SECRET
 The value for `YOUR_VERY_VERY_SECRET_SECRET` is used to create passwords for the wallets of the users of the tipbot. 
 If someone gets a hold of your API key and secret, then YOUR_VERY_VERY_SECRET_SECRET will serve as an extra security measure, to prevent the coins from being stolen.
 
 ### Usage
-You can control / communicate with the tipbot by sending the bot a **direct message** or **mentioning** it's name in a channel.  
+You can control / communicate with the tipbot by sending the bot a **direct message** or **mentioning** its name in a channel.  
 The tipbot responds to certain 'trigger words' in a sentence, so you can wrap the trigger word in a nice looking sentence and it will work.
 
 For example, to trigger the `help` command you can could say `hey @tipbot can you help me figure out how tipping works` 
@@ -86,7 +86,7 @@ eg; `@tipbot I'd like to deposit some BTC`
 ##### `withdraw` -  *tell the bot you want to withdraw to an address*  
 eg; `@tipbot I want to withdraw 0.5 BTC to 1dice8EMZmqKvrGE4Qc9bUFf9PX3xaYDp`  
 
-after you've requested the withdraw the bot will confirm with you if it's OK, reploying with `yes`, `ok` or `sure` will make the transaction happen.
+after you've requested the withdraw the bot will confirm with you if it's OK, replying with `yes`, `ok` or `sure` will make the transaction happen.
 
 #### Channels
 By default the tipbot joins the default `#general` channel, you can invite him into other channels just like you invite normal users into channels.
