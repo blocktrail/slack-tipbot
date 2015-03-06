@@ -49,7 +49,7 @@ slack.on('open', function() {
         }
     });
 
-    debug('tipbot:bot')('Connected to Slack. You are @%s of %s', slack.self.name, slack.team.name);
+    debug('tipbot:bot')('Connected to Slack. You are <@%s:%s> of %s', slack.self.id, slack.self.name, slack.team.name);
     debug('tipbot:bot')('You are in (channels): %s', channels.join(', '));
     debug('tipbot:bot')('As well as (groups): %s', groups.join(', '));
 
