@@ -30,6 +30,33 @@ Slack.prototype.getDMByUserId = function(userId) {
     return _.find(this.dms, {user: userId});
 };
 
+Slack.prototype.reconnect = function() {
+    var timeout;
+    if (this._pongTimeout) {
+        clearInterval(this._pongTimeout);
+        this._pongTimeout = null;
+    }
+    this.authenticated = false;
+    this.ws.close();
+    this._connAttempts++;
+    timeout = this._connAttempts * 1000;
+    this.logger.info("Reconnecting in %dms", timeout);
+
+    // reset
+    this.channels = {};
+    this.dms = {};
+    this.groups = {};
+    this.users = {};
+    this.bots = {};
+
+    return setTimeout((function(_this) {
+        return function() {
+            _this.logger.info('Attempting reconnect');
+            return _this.login();
+        };
+    })(this), timeout);
+};
+
 var slack = new Slack(SLACK_TOKEN, AUTO_RECONNECT, /* AUTO_MARK */ true);
 var tipbot = new TipBot(slack, BLOCKTRAIL_APIKEY, BLOCKTRAIL_APISECRET, SECRET, TESTNET, OPTIONS);
 
