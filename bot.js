@@ -110,7 +110,9 @@ slack.on('userChange', function(u) {
 });
 
 slack.on('error', function(error) {
-    debug('Error: %s', error.msg);
+    debug('tipbot:bot')('Error: %s', error.msg || error.message || error);
+    debug('tipbot:bot')('Error: %s', error.msg || error.message || error);
+    debug('tipbot:bot')('Error: %s', error.msg || error.message || error);
 });
 
 slack.login();
