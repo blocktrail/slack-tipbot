@@ -111,10 +111,18 @@ slack.on('userChange', function(u) {
     tipbot.onUserChange(u);
 });
 
+slack.on('close', function(e) {
+    debug('tipbot:bot')('Close!!');
+    console.log(e);
+
+    process.exit(1);
+});
+
 slack.on('error', function(error) {
-    debug('tipbot:bot')('Error: %s', error.msg || error.message || error);
-    debug('tipbot:bot')('Error: %s', error.msg || error.message || error);
-    debug('tipbot:bot')('Error: %s', error.msg || error.message || error);
+    debug('tipbot:bot')('Error!!');
+    console.log(error);
+
+    process.exit(1);
 });
 
 slack.login();
