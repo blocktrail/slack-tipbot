@@ -82,7 +82,9 @@ slack.on('open', function() {
     debug('tipbot:bot')('As well as (groups): %s', groups.join(', '));
 
     // init the tipbot
-    tipbot.init();
+    setTimeout(function() {
+        tipbot.init();
+    }, 0);
 });
 
 slack.on('message', function(message) {
