@@ -1,6 +1,6 @@
 {
     "name": "blocktrail-slack-tipbot",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Bitcoin Slack TipBot - Using BlockTrail API",
     "main": "bot.js",
     "dependencies": {
