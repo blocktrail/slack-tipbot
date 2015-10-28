@@ -9,7 +9,7 @@ Easily transfer money between team members on your Slack channel.
  - Self hosted so you are always in control of your coins
 
 ### TipBot as a Service
-If you want to have a TipBot for your Slack team without having to host the bot yourself,  
+If you want to have a TipBot for your Slack team without having to host the bot yourself,
 You can setup a hosted TipBot (by BlockTrail): https://tipbot.blocktrail.com
 
 
@@ -26,7 +26,7 @@ How to Run a TipBot
  - `npm install`
 
 ### Run
-Change the `YOUR_SLACK_TOKEN`, `YOUR_API_KEY`, `YOUR_API_SECRET`, `YOUR_VERY_VERY_SECRET_SECRET` in the below snippet 
+Change the `YOUR_SLACK_TOKEN`, `YOUR_API_KEY`, `YOUR_API_SECRET`, `YOUR_VERY_VERY_SECRET_SECRET` in the below snippet
 to the API key and secret, slack token and some random secret.
 ```sh
 DEBUG="tipbot:*" node bot.js \
@@ -44,15 +44,34 @@ but using a `screen` does the job too xD
 
 You can add `--testnet` (or ENV var `TIPBOT_TESTNET="true"`) to make the bot run on testnet instead of mainnet (for development or example).
 
+### Deploy to Heroku
+
+You can also deploy the bot to heroku in order to maintain under a controlled-server:
+
+```
+git clone git@github.com:blocktrail/slack-tipbot.git
+cd slack-tipbot
+npm install
+heroku create
+git push heroku master
+heroku scale web=0
+heroku scale bot=1
+heroku config:set TIPBOT_SLACK_TOKEN='YOUR_SLACK_TOKEN'
+heroku config:set TIPBOT_BLOCKTRAIL_APIKEY='YOUR_API_KEY'
+heroku config:set TIPBOT_BLOCKTRAIL_APISECRET='YOUR_API_SECRET'
+heroku config:set TIPBOT_SECRET='YOUR_VERY_VERY_SECRET_SECRET'
+```
+
+
 #### YOUR_VERY_VERY_SECRET_SECRET
-The value for `YOUR_VERY_VERY_SECRET_SECRET` is used to create passwords for the wallets of the users of the tipbot. 
+The value for `YOUR_VERY_VERY_SECRET_SECRET` is used to create passwords for the wallets of the users of the tipbot.
 If someone gets a hold of your API key and secret, then YOUR_VERY_VERY_SECRET_SECRET will serve as an extra security measure, to prevent the coins from being stolen.
 
 ### Usage
-You can control / communicate with the tipbot by sending the bot a **direct message** or **mentioning** its name in a channel.  
+You can control / communicate with the tipbot by sending the bot a **direct message** or **mentioning** its name in a channel.
 The tipbot responds to certain 'trigger words' in a sentence, so you can wrap the trigger word in a nice looking sentence and it will work.
 
-For example, to trigger the `help` command you can could say `hey @tipbot can you help me figure out how tipping works` 
+For example, to trigger the `help` command you can could say `hey @tipbot can you help me figure out how tipping works`
 and the `help` in that sentence will trigger displaying the help information.
 
 #### Commands / Trigger words
@@ -62,29 +81,29 @@ eg; `hey @tipbot can you show me the help info!`
 ##### `balance` - *ask the bot for your current balance*
 eg; `hey @tipbot can you please tell me my balance`
 
-##### `send <value + unit> @someone` - *tell the bot to send coins to someone*  
-eg; `@tipbot please send 0.1 BTC to @bob` will send 0.1 BTC to @bob.  
+##### `send <value + unit> @someone` - *tell the bot to send coins to someone*
+eg; `@tipbot please send 0.1 BTC to @bob` will send 0.1 BTC to @bob.
 
-the `<value + unit>` can be `0.1 BTC` or `10000000 Satoshi`  
+the `<value + unit>` can be `0.1 BTC` or `10000000 Satoshi`
 
-this command has a few aliases which you can use; `give` and `sent`  
+this command has a few aliases which you can use; `give` and `sent`
 eg; `@tipbot can you give @bob 0.1 BTC` or `@tipbot I'd like you to send @bob 0.1 BTC`
 
 ##### `receive <value + unit> @someone` - *tell the bot to request coins from someone*
-eg; `@tipbot I want to receive 0.1 BTC from @bob` will request 0.1 BTC from @bob.  
+eg; `@tipbot I want to receive 0.1 BTC from @bob` will request 0.1 BTC from @bob.
 
-after you've requested coins from someone that person will be asked if that is OK, replying with `yes`, `ok` or `sure` will make the transaction happen.  
+after you've requested coins from someone that person will be asked if that is OK, replying with `yes`, `ok` or `sure` will make the transaction happen.
 
-the `<value + unit>` can be `0.1 BTC` or `10000000 Satoshi`  
+the `<value + unit>` can be `0.1 BTC` or `10000000 Satoshi`
 
-this command has a few aliases which you can use; `ask`, `demand`, `deserve`, `send me`, `give me`, `gimme` and `owes me`  
+this command has a few aliases which you can use; `ask`, `demand`, `deserve`, `send me`, `give me`, `gimme` and `owes me`
 eg; `@tipbot I demand 0.1 BTC from @bob for making such a cool bot` or `@tipbot @bob please gimme 0.1 BTC for lunch`
 
-##### `deposit` - *ask the bot for a deposit address* 
+##### `deposit` - *ask the bot for a deposit address*
 eg; `@tipbot I'd like to deposit some BTC`
 
-##### `withdraw` -  *tell the bot you want to withdraw to an address*  
-eg; `@tipbot I want to withdraw 0.5 BTC to 1dice8EMZmqKvrGE4Qc9bUFf9PX3xaYDp`  
+##### `withdraw` -  *tell the bot you want to withdraw to an address*
+eg; `@tipbot I want to withdraw 0.5 BTC to 1dice8EMZmqKvrGE4Qc9bUFf9PX3xaYDp`
 
 after you've requested the withdraw the bot will confirm with you if it's OK, replying with `yes`, `ok` or `sure` will make the transaction happen.
 
@@ -96,13 +115,13 @@ Security / Privacy
 ------------------
 The tipbot is in full control of the coins (BlockTrail can't access the coins).
 
-When you invite the tipbot into a channel it can see all the messages in the channel, 
+When you invite the tipbot into a channel it can see all the messages in the channel,
 keep this in mind if the tipbot is hosted by that one intern that has left your company for a competitor ;-)
 
 
 Features ToDo
 -------------
- - withdraw EVERYTHING 
+ - withdraw EVERYTHING
  - transaction history
  - better way of dealing with errors
  - add option for users to set a custom password (would require them to give the password or a browser extension to sign transactions)
