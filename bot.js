@@ -15,7 +15,7 @@ var SLACK_TOKEN = argv['slack-token'] || process.env.TIPBOT_SLACK_TOKEN,
     SECRET = argv['secret'] || process.env.TIPBOT_SECRET,
     TESTNET = argv['testnet'] || process.env.TIPBOT_TESTNET,
     AUTO_RECONNECT = true,
-    OPTIONS = {ALL_BALANCES: true, DEMAND: true};
+    OPTIONS = {ALL_BALANCES: true, DEMAND: true, FEE_STRATEGY: argv['feestrategy'] || process.env.TIPBOT_FEE_STRATEGY};
 
 assert(SLACK_TOKEN, "--slack-token or TIPBOT_SLACK_TOKEN is required");
 assert(BLOCKTRAIL_APIKEY, "--blocktrail-apikey or TIPBOT_BLOCKTRAIL_APIKEY is required");
