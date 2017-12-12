@@ -5,7 +5,7 @@
     "main": "bot.js",
     "dependencies": {
         "async": "~0.9.0",
-        "blocktrail-sdk": "~2.0.1",
+        "blocktrail-sdk": "~3.6.1",
         "debug": "~2.1.1",
         "lodash": "~3.1.0",
         "minimist": "^1.1.0",
